@@ -2,7 +2,7 @@
  * @Author: Huangjs
  * @Date: 2023-02-13 15:22:58
  * @LastEditors: Huangjs
- * @LastEditTime: 2023-07-27 14:34:11
+ * @LastEditTime: 2023-07-27 14:59:57
  * @Description: ******
  */
 
@@ -12,17 +12,17 @@ function damping(
   expo: number,
   revoke: boolean = false,
 ) {
-  if (value < 1) {
+  if (
+    value < 1 ||
+    max < 1 ||
+    // 反算的时候value必须小于max
+    (revoke && value > max) ||
+    expo <= 0 ||
+    expo > 1
+  ) {
     return value;
   }
-  if (max < 1) {
-    return 1;
-  }
   if (revoke) {
-    // 反算的时候value必须小于max
-    if (value > max) {
-      return value;
-    }
     return Math.pow(((max - 1) * value) / (max - value), 1 / expo);
   }
   return max / (1 + (max - 1) / Math.pow(value, expo));
