@@ -2,7 +2,8 @@
   "name": "@huangjs888/damping",
   "version": "1.0.1",
   "description": "damping algorithm",
-  "main": "lib/index.js",
+  "main": "src/index",
+  "source": "src/index",
   "unpkg": "dist/damping.min.js",
   "files": [
     "dist",
