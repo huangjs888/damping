@@ -6,12 +6,7 @@
  * @Description: ******
  */
 
-function damping(
-  value: number,
-  max: number,
-  expo: number,
-  revoke: boolean = false,
-) {
+function damping(value: number, max: number, expo: number, revoke: boolean = false) {
   if (
     value < 1 ||
     max < 1 ||
