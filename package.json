@@ -1,6 +1,6 @@
 {
   "name": "@huangjs888/damping",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Damping algorithm",
   "types": "./types/index.d.ts",
   "module": "./es/damping.min.js",
