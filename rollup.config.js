@@ -2,7 +2,7 @@
  * @Author: Huangjs
  * @Date: 2023-08-09 11:24:45
  * @LastEditors: Huangjs
- * @LastEditTime: 2023-08-21 14:26:37
+ * @LastEditTime: 2023-10-16 15:19:45
  * @Description: ******
  */
 
@@ -22,6 +22,7 @@ const config = {
     {
       file: `${pathname}/damping${NODE_ENV === 'production' ? '.min' : ''}.js`,
       format: MOD_ENV,
+      exports: 'named',
       // umd时挂在全局变量下的模块名称
       name: MOD_ENV === 'umd' ? 'Damping' : undefined,
       sourcemap: true,
