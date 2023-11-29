@@ -2,8 +2,18 @@
  * @Author: Huangjs
  * @Date: 2023-02-13 15:22:58
  * @LastEditors: Huangjs
- * @LastEditTime: 2023-07-27 14:59:57
+ * @LastEditTime: 2023-11-01 14:41:37
  * @Description: ******
+ */
+
+/*
+ *
+ * 阻尼算法和阻尼反算：
+ * 𝑢=𝑚/(1+(𝑚−1)/𝑣^𝑒 )
+ * 𝑣=(𝑢(𝑚−1)/(𝑚−𝑢))^(1/𝑒)
+ * 0<𝑒≤1, 𝑚≥𝑢≥1, 𝑣≥1
+ * e 是阻尼因子(指数值)，m 是阻尼最大值，u 是阻尼值，v 是原值
+ *
  */
 
 function damping(value: number, max: number, expo: number, revoke: boolean = false) {
@@ -28,7 +38,8 @@ type DampingOption = {
   mode?: number;
   expo?: number;
 };
-// 阻尼值
+
+// 阻尼值，阻尼的value一般要求是大于1的，这里对于小于0的，取相反数计算，对于小于1的先+1计算，后再-1返回，或先倒数计算，再取倒数返回两种方式
 export function performDamping(value: number, option: DampingOption = {}) {
   if (value === 0) {
     return 0;
@@ -48,7 +59,7 @@ export function performDamping(value: number, option: DampingOption = {}) {
   }
   return _value * (value > 0 ? 1 : -1);
 }
-// 阻尼原值
+// 阻尼原值，阻尼的value一般要求是大于1的，这里对于小于0的，取相反数计算，对于小于1的先+1计算，后再-1返回，或先倒数计算，再取倒数返回两种方式
 export function revokeDamping(value: number, option: DampingOption = {}) {
   if (value === 0) {
     return 0;
